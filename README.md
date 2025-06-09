@@ -58,7 +58,7 @@ Default Login Credentials
         Username: testuser
         Password: test123
 
- Requirements
+Requirements
 Before running the app, ensure you have installed the following versions or compatible ones:
     Node.js: 22.14.0
     npm: 10.9.2
