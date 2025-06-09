@@ -1,10 +1,10 @@
-# 📝 Notes Web Application
+# Notes Web Application
 
 This is a full stack web application that allows users to create, archive, and filter notes using tags. It is built as a Single Page Application (SPA) with a Spring Boot (Java) backend and an Angular frontend.
 
 ---
 
-## 🚀 Technologies Used
+## Technologies Used
 
 - **Backend**: Java 21, Spring Boot, Spring Data JPA, Spring Security, MySQL
 - **Frontend**: Angular 19, TypeScript
@@ -58,7 +58,7 @@ Default Login Credentials
         Username: testuser
         Password: test123
 
-💡 Requirements
+ Requirements
 Before running the app, ensure you have installed the following versions or compatible ones:
     Node.js: 22.14.0
     npm: 10.9.2
