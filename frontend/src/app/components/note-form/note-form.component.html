@@ -1,0 +1,41 @@
+<div class="form-container">
+  <h2 class="form-title">{{ isEditMode ? 'Edit Note' : 'Create Note' }}</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" [(ngModel)]="title" name="title" required />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea id="content" [(ngModel)]="content" name="content" rows="6" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <select id="tags" [(ngModel)]="tagToAdd" name="tagToAdd" (change)="addTag()">
+        <option value="" disabled selected>Select a tag</option>
+        <option *ngFor="let tag of allTags" [ngValue]="tag">{{ tag.name }}</option>
+      </select>
+    </div>
+
+    <div class="tag-list">
+      <span
+        *ngFor="let tag of selectedTags"
+        class="tag"
+        [ngStyle]="{ 'background-color': tag.color }"
+      >
+        {{ tag.name }}
+        <span class="remove-tag" (click)="removeTag(tag)">×</span>
+      </span>
+    </div>
+
+
+    <input type="hidden" [(ngModel)]="archived" name="archived" />
+
+    <button type="submit" class="submit-button">
+      {{ isEditMode ? 'Save Changes' : 'Create Note' }}
+    </button>
+  </form>
+</div>

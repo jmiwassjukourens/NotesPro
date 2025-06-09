@@ -1,0 +1,57 @@
+<br>
+<div class="filter-tags">
+  <label for="tagFilter">Filter by categories:</label>
+  <select
+    id="tagFilter"
+    [(ngModel)]="tagToAdd"
+    (change)="addTagToSelection()"
+    class="tag-select"
+  >
+    <option value="" disabled selected>Select a category</option>
+    <option *ngFor="let tag of availableTags" [ngValue]="tag">{{ tag.name }}</option>
+  </select>
+
+  <button class="clear-filter" (click)="clearFilter()">Clear</button>
+</div>
+
+<div class="selected-categories" *ngIf="selectedTags.length > 0">
+  <p>Selected categories:</p>
+  <div class="tag-chip" *ngFor="let tag of selectedTags" [ngStyle]="{'background-color': tag.color}">
+    {{ tag.name }}
+    <span class="remove-tag" (click)="removeTag(tag)">×</span>
+  </div>
+</div>
+
+<div class="notes-wrapper">
+  <div class="note-card" *ngFor="let note of filteredNotes">
+    <div class="note-header">
+      <h3>{{ note.title }}</h3>
+      <div class="actions">
+        <button class="icon-button edit-button" [routerLink]="['/edit-note', note.id]">
+          <span class="material-icons">edit</span>
+        </button>
+        <button class="icon-button delete-button" (click)="confirmDelete(note.id)">
+          <span class="material-icons">delete</span>
+        </button>
+        <button class="icon-button archive-button" (click)="triggerArchiveToggle(note.id)">
+          <span class="material-icons">{{ isArchiveView ? 'unarchive' : 'archive' }}</span>
+        </button>
+      </div>
+    </div>
+    <p class="note-content">{{ note.content }}</p>
+    <div class="tags-container">
+      <span *ngFor="let tag of note.tags" class="tag" [ngStyle]="{'background-color': tag.color}">
+        {{ tag.name }}
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="confirmation-overlay" *ngIf="noteToDelete !== null"></div>
+
+<div *ngIf="noteToDelete !== null" class="delete-confirmation">
+  <p>Are you sure? The note will be permanently deleted.</p>
+  <br />
+  <button class="button-aus" (click)="deleteNote()">Yes, delete</button>
+  <button class="button-aus cancel" (click)="cancelDelete()">Cancel</button>
+</div>

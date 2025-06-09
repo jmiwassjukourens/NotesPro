@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <main>
+    <div class="container-header">
+      <div class="logo">
+        <a routerLink="/" class="logo-link">
+          <img id="logo" class="logo_img" src="/logo.png" alt="Logo" />
+          <span class="logo-text">NotesPro</span>
+        </a>
+      </div>
+
+      <header>
+        <div class="menu-toggle" (click)="toggleMenu()">
+          <br>
+          <span class="span_nav" *ngIf="!isMenuActive">☰</span>
+          <span class="span_nav" *ngIf="isMenuActive">✖</span>
+        </div>
+
+        <nav id="menu" [ngClass]="{ 'active': isMenuActive }">
+          <ul class="un-header">
+            <li *ngIf="isLoggedIn"><a routerLink="/create-note">Create</a></li>
+            <li *ngIf="isLoggedIn"><a routerLink="/notes">Notes</a></li>
+            <li *ngIf="isLoggedIn"><a routerLink="/notes-archived">Archived</a></li>
+          </ul>
+        </nav>
+
+      </header>
+    </div>
+
+    <router-outlet></router-outlet>
+    <br>
+  </main>
+<br>
+  <footer>
+    
+    <div class="footer-content">
+      <span>© Notes App 2025</span>
+    </div>
+  </footer>
+
+</body>
+</html>
