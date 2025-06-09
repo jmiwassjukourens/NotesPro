@@ -17,7 +17,7 @@ This is a full stack web application that allows users to create, archive, and f
 
 ---
 
-## 🛠️ How to Run the Application
+## How to Run the Application
 
 To run the entire application (backend, frontend, and database setup) with a single command, use the provided script:
 
