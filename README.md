@@ -1,4 +1,4 @@
-# Notes Web Application
+# NotesPro!
 
 This is a full stack web application that allows users to create, archive, and filter notes using tags. It is built as a Single Page Application (SPA) with a Spring Boot (Java) backend and an Angular frontend.
 
