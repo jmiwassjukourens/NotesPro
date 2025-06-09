@@ -54,7 +54,7 @@ The script will:
 To stop the app, press CTRL+C.
 
 Default Login Credentials
-    If you want to test the login functionality, use the following default user:
+    If you want to test the app functionality, use the following default user:
         Username: testuser
         Password: test123
 
